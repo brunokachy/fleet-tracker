@@ -3,30 +3,33 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package com.fleettracker.entity.model;
+package com.fleettracker.rest.model;
 
-import java.io.Serializable;
-import javax.persistence.Column;
-import javax.persistence.Entity;
+import com.fleettracker.entity.model.FleetCategory;
 
 /**
  *
  * @author Bruno
  */
-@Entity
-public class Fleet extends AuditModel implements Serializable {
+public class FleetRest {
 
-    @Column(name = "fleet_number", nullable = false)
+    private Long id;
+
     private String fleetNumber;
 
-    @Column(name = "fleet_category", nullable = false)
-    private FleetCategory fleetCategory;
+    private String fleetCategory;
 
-    @Column(name = "colour")
     private String colour;
 
-    @Column(name = "assigned_driver")
     private String assignedDriver;
+
+    public Long getId() {
+        return id;
+    }
+
+    public void setId(Long id) {
+        this.id = id;
+    }
 
     public String getFleetNumber() {
         return fleetNumber;
@@ -36,11 +39,11 @@ public class Fleet extends AuditModel implements Serializable {
         this.fleetNumber = fleetNumber;
     }
 
-    public FleetCategory getFleetCategory() {
+    public String getFleetCategory() {
         return fleetCategory;
     }
 
-    public void setFleetCategory(FleetCategory fleetCategory) {
+    public void setFleetCategory(String fleetCategory) {
         this.fleetCategory = fleetCategory;
     }
 
@@ -58,6 +61,11 @@ public class Fleet extends AuditModel implements Serializable {
 
     public void setAssignedDriver(String assignedDriver) {
         this.assignedDriver = assignedDriver;
+    }
+
+    @Override
+    public String toString() {
+        return "FleetRest{" + "id=" + id + ", fleetNumber=" + fleetNumber + ", fleetCategory=" + fleetCategory + ", colour=" + colour + ", assignedDriver=" + assignedDriver + '}';
     }
 
 }
