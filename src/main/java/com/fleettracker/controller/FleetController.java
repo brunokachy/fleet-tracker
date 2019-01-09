@@ -105,7 +105,7 @@ public class FleetController {
     @PostMapping(path = "/deactivate", produces = "application/json", consumes = "application/json")
     public ResponseEntity<ApiResponse<FleetRest>> deactivate(@RequestBody FleetRest fleetRest) {
 
-        if (StringUtils.isEmpty(fleetRest.getId()) || StringUtils.isEmpty(fleetRest.getFleetCategory())) {
+        if (StringUtils.isEmpty(fleetRest.getId())) {
             throw new ResourceException("Missing required details.");
         }
 
@@ -134,7 +134,7 @@ public class FleetController {
     @PostMapping(path = "/delete", produces = "application/json", consumes = "application/json")
     public ResponseEntity<ApiResponse<FleetRest>> delete(@RequestBody FleetRest fleetRest) {
 
-        if (StringUtils.isEmpty(fleetRest.getId()) || StringUtils.isEmpty(fleetRest.getFleetCategory())) {
+        if (StringUtils.isEmpty(fleetRest.getId())) {
             throw new ResourceException("Missing required details.");
         }
 
